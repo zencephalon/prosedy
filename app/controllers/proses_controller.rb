@@ -1,5 +1,6 @@
 class ProsesController < ApplicationController
   before_action :set_prose, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   # GET /proses
   # GET /proses.json
@@ -14,7 +15,7 @@ class ProsesController < ApplicationController
 
   # GET /proses/new
   def new
-    @prose = Prose.new
+    @prose = current_user.proses.new
   end
 
   # GET /proses/1/edit
@@ -24,7 +25,7 @@ class ProsesController < ApplicationController
   # POST /proses
   # POST /proses.json
   def create
-    @prose = Prose.new(prose_params)
+    @prose = current_user.proses.new(prose_params)
 
     respond_to do |format|
       if @prose.save
@@ -64,7 +65,7 @@ class ProsesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_prose
-      @prose = Prose.find(params[:id])
+      @prose = Prose.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
