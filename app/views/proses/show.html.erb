@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @prose.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @prose.text %>
+</p>
+
+<%= link_to 'Edit', edit_prose_path(@prose) %> |
+<%= link_to 'Back', proses_path %>

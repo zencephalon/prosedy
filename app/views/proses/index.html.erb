@@ -1,0 +1,29 @@
+<h1>Listing proses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proses.each do |prose| %>
+      <tr>
+        <td><%= prose.title %></td>
+        <td><%= prose.text %></td>
+        <td><%= link_to 'Show', prose %></td>
+        <td><%= link_to 'Edit', edit_prose_path(prose) %></td>
+        <td><%= link_to 'Destroy', prose, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prose', new_prose_path %>
