@@ -1,4 +1,6 @@
 Prosedy::Application.routes.draw do
+
+  root 'proses#index'
   resources :proses
 
   # The priority is based upon order of creation: first created -> highest priority.
