@@ -1,5 +1,6 @@
 Prosedy::Application.routes.draw do
 
+  devise_for :users
   root 'proses#index'
   resources :proses
 
