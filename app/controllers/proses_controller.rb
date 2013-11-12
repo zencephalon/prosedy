@@ -11,6 +11,15 @@ class ProsesController < ApplicationController
   # GET /proses/1
   # GET /proses/1.json
   def show
+    @prose = Prose.friendly.find(params[:id])
+    if request.path != prose_path(@prose)
+      redirect_to @prose, status: :moved_permanently
+    else
+      respond_to do |format|
+        format.html
+        format.json { render json: @prose }
+      end
+    end
   end
 
   # GET /proses/new
