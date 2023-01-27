@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'devise', '~> 3.0.0.rc'
+gem 'devise', '~> 3.5.10'
 gem 'friendly_id'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
